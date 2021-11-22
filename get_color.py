@@ -50,18 +50,30 @@ email = 'edalatpour@hotmail.com'
 
 last_status = ''
 
+color_map = {'red': (255,0,0),
+             'orange': (255,140,0),
+             'yellow': (255,255,0),
+             'green': (0,205,0),
+             'blue': (0,0,255),
+             'purple': (128,0,128)}
+
 while True:
 
     try:
         status = get_user_status(email)
         status = status.strip().lower()
         if status != last_status:
-            if status == 'red':
-                print('red')
-                color(255, 0, 0)
-            if status == 'green':
-                print('green')
-                color(0, 255, 0)
+#            if status == 'red':
+#                print('red')
+#                color(255, 0, 0)
+#            if status == 'green':
+#                print('green')
+#                color(0, 255, 0)
+            (r,g,b) = color_map[status]
+            color(r,g,b)
             last_status = status
+
+    except:
+        print('error')
     finally:
-        time.sleep(1)
+        time.sleep(10)
