@@ -18,10 +18,6 @@ def get_user_status(email):
     #print(request)
     response = urllib.request.urlopen(request)
     html = response.read().decode('utf-8')
-
-    #data = json.load(response)
-
-    #return data['userStatus']
     return html
 
 def set_user_status(email, color_name):
@@ -80,7 +76,9 @@ def startup():
     time.sleep(sleep)
     clear()
 
+# uncomment this line if you need proof that the program is running.
 # startup()
+
 uh.set_brightness(0.5)
 email = 'edalatpour@hotmail.com'
 
